@@ -35,14 +35,16 @@ class Cancion {
 
 window.addEventListener("DOMContentLoaded", () => {
   const canciones: Cancion[] = [
-    new Cancion("Ecos del Silencio", "Balada"),
-    new Cancion("Tormenta Solar", "Rock"),
-    new Cancion("Alma de Cristal", "Pop")
+    new Cancion("Bohemian Rhapsody", "Rock"),
+    new Cancion("Shape of You", "Pop"),
+    new Cancion("Blinding Lights", "Synthwave"),
+    new Cancion("La La La", "Reggae")
   ];
 
-  canciones[0].setAutor("Lucía Méndez");
-  canciones[1].setAutor("Carlos Vega");
-  canciones[2].setAutor("Ana Torres");
+  canciones[0].setAutor("Queen");
+  canciones[1].setAutor("Ed Sheeran");
+  canciones[2].setAutor("The Weeknd");
+  canciones[3].setAutor("Shakira");
 
   const contenedor = document.getElementById("contenedor-canciones")!;
   canciones.forEach(cancion => contenedor.appendChild(cancion.mostrar()));
