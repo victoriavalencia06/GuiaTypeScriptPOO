@@ -5,7 +5,7 @@ class CabeceraPagina {
   private alineacion: "left" | "center" | "right" = "left";
 
   // Método para definir título, color y fuente
-  obtenerPropiedades(titulo: string, color: string, fuente: string): void {
+  definirPropiedades(titulo: string, color: string, fuente: string): void {
     this.titulo = titulo;
     this.color = color;
     this.fuente = fuente;
@@ -32,7 +32,7 @@ class CabeceraPagina {
 // Esperar que el DOM cargue
 window.addEventListener("DOMContentLoaded", () => {
   const header = new CabeceraPagina();
-  header.obtenerPropiedades("Mi header automático", "#7c1515", "Georgia");
+  header.definirPropiedades("Mi header automático", "#7c1515", "Georgia");
   header.definirAlineacion("center");
   header.imprimir();
 });

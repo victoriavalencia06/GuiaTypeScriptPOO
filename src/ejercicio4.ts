@@ -11,22 +11,21 @@ class Cuenta {
     this.numeroCuenta = numeroCuenta;
   }
 
-  depositar(): string {
-    if (this.cantidad < 5) {
+  depositar(monto: number): string {
+    if (monto < 5) {
       return `El valor a depositar debe ser mayor a $5.00`;
-    } else {
-      return `Depósito exitoso: Se han depositado $${this.cantidad.toFixed(2)}`;
     }
+    this.cantidad += monto;
+    return `Depósito exitoso: Se han depositado $${monto.toFixed(2)}. Saldo actual: $${this.cantidad.toFixed(2)}`;
   }
 
   retirar(valor: number): string {
-    if (this.cantidad === 0 || valor > this.cantidad) {
-      return `No hay fondos suficientes en la cuenta`;
-    }
     if (valor < 5) {
       return `El valor a retirar debe ser mayor a $5.00`;
     }
-
+    if (valor > this.cantidad) {
+      return `No hay fondos suficientes en la cuenta`;
+    }
     this.cantidad -= valor;
     return `Retiro exitoso: Has retirado $${valor.toFixed(2)}. Saldo restante: $${this.cantidad.toFixed(2)}`;
   }
@@ -44,8 +43,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   div.innerHTML = cuenta.mostrarDatos();
 
-  const mensajeDeposito = cuenta.depositar();
-  const mensajeRetiro = cuenta.retirar(8);
+  // Simulación estática con montos de depósito y retiro preestablecidos
+  const mensajeDeposito = cuenta.depositar(20);
+  const mensajeRetiro = cuenta.retirar(10);
 
   resultado.innerHTML = `
     <p>${mensajeDeposito}</p>
